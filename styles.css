@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000;
+    font-family: 'Alarm Clock', monospace;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.timer {
+    font-size: 20vw;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    line-height: 1;
+    letter-spacing: 4px;
+    position: relative;
+    padding: 0.2em;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.timer::before,
+.timer::after {
+    display: none;
+}
+
+.controls {
+    position: fixed;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.controls.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.color-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.color-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.color-input label {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.color-input input[type="color"] {
+    width: 50px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Alarm Clock', monospace;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.settings-icon {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.settings-icon.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.settings-icon:hover {
+    color: white;
+    transform: rotate(45deg);
+} 
