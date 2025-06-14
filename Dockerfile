@@ -11,8 +11,8 @@ RUN npm install --production
 # Copy the rest of the application
 COPY . .
 
-# Debug: List files to verify server.js exists
-RUN ls -la
+# Debug: List files and show server.js content
+RUN ls -la && echo "=== Server.js content ===" && cat server.js
 
 # Ensure proper permissions
 RUN chown -R node:node /app

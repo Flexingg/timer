@@ -3,6 +3,8 @@ services:
     build:
       context: .
       no_cache: true
+    image: timer:latest
+    pull_policy: always
     ports:
       - "6969:3000"
     environment:
