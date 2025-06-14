@@ -1,6 +1,8 @@
 services:
   web:
-    build: .
+    build:
+      context: .
+      no_cache: true
     ports:
       - "6969:3000"
     environment:
