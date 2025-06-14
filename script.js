@@ -342,4 +342,40 @@ defaultTimeInput.addEventListener('input', (e) => {
 });
 
 // Initialize the display with the current format
-updateDisplay(); 
+updateDisplay();
+
+function resizeTimer() {
+    const timer = document.getElementById('timer');
+    const container = timer.parentElement;
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+    
+    // Start with the base font size
+    let fontSize = 20;
+    timer.style.fontSize = `${fontSize}vw`;
+    
+    // Get the timer's dimensions
+    let timerWidth = timer.offsetWidth;
+    let timerHeight = timer.offsetHeight;
+    
+    // Calculate the scale needed to fit within the container
+    const widthScale = (containerWidth * 0.9) / timerWidth;
+    const heightScale = (containerHeight * 0.9) / timerHeight;
+    const scale = Math.min(widthScale, heightScale);
+    
+    // Apply the scale transform
+    timer.style.transform = `scale(${scale})`;
+}
+
+// Call resizeTimer when the window is resized
+window.addEventListener('resize', resizeTimer);
+
+// Call resizeTimer after each timer update
+const originalUpdateDisplay = updateDisplay;
+updateDisplay = function() {
+    originalUpdateDisplay();
+    resizeTimer();
+};
+
+// Initial resize
+resizeTimer(); 
