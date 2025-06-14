@@ -22,5 +22,5 @@ USER node
 
 EXPOSE 3000
 
-# Use absolute path for server.js
-CMD ["node", "/app/server.js"] 
+# Use relative path since we're in the WORKDIR
+CMD ["node", "server.js"] 
