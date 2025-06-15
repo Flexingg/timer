@@ -7,6 +7,7 @@ const urlsToCache = [
     '/manifest.json',
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png',
+    '/icons/timer-end.png',
     'https://fonts.cdnfonts.com/css/alarm-clock',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];

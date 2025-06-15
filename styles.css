@@ -161,4 +161,36 @@ button:active {
 .settings-icon:hover {
     color: white;
     transform: rotate(45deg);
+}
+
+.timer-end-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes slowFlash {
+    0% { opacity: 1; }
+    25% { opacity: 0.3; }
+    50% { opacity: 1; }
+    75% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+@keyframes fastFlash {
+    0% { opacity: 1; }
+    25% { opacity: 0.3; }
+    50% { opacity: 1; }
+    75% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.slow-flash {
+    animation: slowFlash 4s ease-in-out infinite;
+}
+
+.fast-flash {
+    animation: fastFlash 1s ease-in-out infinite;
 } 

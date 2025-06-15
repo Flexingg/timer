@@ -255,7 +255,31 @@ buttonTextInput.addEventListener('input', (e) => {
 });
 
 function updateDisplay() {
-    timerDisplay.textContent = formatTime(timeLeft);
+    // Remove any existing flash classes
+    timerDisplay.classList.remove('slow-flash', 'fast-flash');
+    
+    if (timeLeft <= 0) {
+        // Show timer end image
+        timerDisplay.innerHTML = `<img src="/icons/timer-end.png" alt="Timer End" class="timer-end-image">`;
+    } else {
+        // Show normal timer
+        timerDisplay.textContent = formatTime(timeLeft);
+        
+        // Add flashing effects based on remaining time
+        if (timeLeft <= 8 * 60 * 60) { // 8 hours or less
+            timerDisplay.classList.add('fast-flash');
+        } else if (timeLeft <= 24 * 60 * 60) { // 24 hours or less
+            timerDisplay.classList.add('slow-flash');
+        }
+    }
+    resizeTimer();
+}
+
+// Add function to handle timer end state
+function handleTimerEnd() {
+    if (timeLeft <= 0) {
+        timerDisplay.innerHTML = `<img src="/icons/timer-end.png" alt="Timer End" class="timer-end-image">`;
+    }
 }
 
 function updateTimer() {
